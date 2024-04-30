@@ -1,0 +1,31 @@
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+spring:
+  datasource:
+    url:  ${DB_URL:jdbc:mysql://terraform-20240430091749947700000001.cd2nsz5xf5e7.ap-northeast-2.rds.amazonaws.com:3306/s3testdb}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:050505admin}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  hikari:
+    maximum-pool-size: 10
+    minimum-idle: 5
+    idle-timeout: 10000
+    max-lifetime: 600000
+    connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: false
+        order_inserts: true
+        order_updates: true
+        batch_fetch_size: 100
+        jdbc:
+          batch_size: 50
+          fetch_size: 100
